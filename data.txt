@@ -1,0 +1,39 @@
+kontak kami
+visi misi
+
+PROFILE
+latar belakang perbaiki title
+struktur organisasi sesuaikan seperti CP
+
+PROGRAM
+status tuker tempat brosur
+urutkan sesuai tanggal terbaru
+tambah menu "DAFTAR PROGRAM"
+
+MEDIA
+Tambah menu "DOKUMENTASI KEGIATAN" di bawah gallery
+nama BERITA LSP diganti jadi BERITA
+
+URUTAN HOME
+infografis masukin di bawah JASA KAMI
+
+HOME
+edit banyaknya peserta 3 tahun terakhir
+edit klien
+
+
+fe
+VUE_APP_I18N_LOCALE=en
+VUE_APP_I18N_FALLBACK_LOCALE=en
+VUE_APP_BUILD_TYPE = domain
+VUE_APP_API_DEV = http://127.0.0.1:3001/
+VUE_APP_API_PROD = http://128.199.215.159/api
+VUE_APP_API_DOMAIN = https://lsp-promigas.id/api
+
+be
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=
+DB_DATABASE=lpkkpmi
+PORT=3001
+IP=127.0.0.1
