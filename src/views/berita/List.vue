@@ -52,7 +52,7 @@
                   <v-img
                     :src="
                       `${API_LINK +
-                        '/uploads/' +
+                        'uploads/' +
                         (item.file !== null
                           ? item.file
                           : '2021-08-31T22-24-31.598Z-images.png')}`
@@ -258,7 +258,7 @@ export default {
     },
     loadTable() {
       axios
-        .get('http://localhost:3001/articles')
+        .get(`${this.API_LINK}articles`)
         // .get(`${this.API_LINK}/articles`)
         .then(res => {
           this.result = res.data.data
@@ -297,7 +297,7 @@ export default {
           month = 'Apr'
           break
         case '05':
-          month = 'May'
+          month = 'Mei'
           break
         case '06':
           month = 'Jun'
@@ -315,10 +315,10 @@ export default {
           month = 'Okt'
           break
         case '11':
-          month = 'NOV'
+          month = 'Nov'
           break
         case '12':
-          month = 'DES'
+          month = 'Des'
           break
       }
       return day + ' ' + month + ' ' + year
@@ -350,7 +350,7 @@ export default {
       ).then(res => {
         if (res.value) {
           axios
-            .delete(`${this.API_LINK}/articles/${id}`)
+            .delete(`${this.API_LINK}articles/${id}`)
             .then(res => {
               this.showMsgDialog('success', res.data.msg, false)
               this.loadTable()

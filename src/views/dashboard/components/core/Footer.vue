@@ -157,17 +157,17 @@ export default {
           {
             title: 'Address',
             text:
-              'Gedung Atlantica, Jl. Kuningan Barat No. 7, Kec. Mampang Prapatan, <br/>Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta, 12710',
+              'Gedung Atlantica Lt. 3, Unit 305, Jl. Kuningan Barat No. 7,<br/>Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta, 12710',
             icon: 'mdi-map-marker'
           },
           {
             title: 'Phone',
-            text: '(021) 5214521',
+            text: '(021) 5214521 / 0821-1788-7070 (Putri)',
             icon: 'mdi-phone'
           },
           {
             title: 'Email',
-            text: 'sekretariat.lsppromigas@gmail.com',
+            text: 'sekretariat@lpk-kpmi.id',
             icon: 'mdi-email'
           }
         ]

@@ -5,51 +5,95 @@
       tag="section"
       style="padding: 0 15px;position:relative;"
     >
-      <div class="dotsBg"></div>
-      <div class="dotsBg2"></div>
-      <div class="cColTitle">
-        <div class="cColDiv"></div>
-        <div class="tHeadLine">
-          <p class="cColText" style="line-height:35px; margin:0;">
-            GALLERY
-          </p>
-        </div>
-        <hr />
-      </div>
       <v-row
         align="center"
-        style="font-size:21px; padding:5px 15px 15px 0; margin:0;"
+        no-gutters
+        style="font-size:18px; padding:0; margin:0;;"
       >
-        <v-col
-          v-for="(n, i) in img"
-          :key="i"
-          class="d-flex child-flex"
-          cols="4"
-          style="padding:5px;"
-        >
-          <v-img
-            :src="n.pict"
-            :lazy-src="`https://picsum.photos/10/6?image=${15 * 5 + 10}`"
-            aspect-ratio="1.4"
-            class="grey lighten-2"
-          >
-            <template v-slot:placeholder>
-              <v-row class="fill-height ma-0" align="center" justify="center">
-                <v-progress-circular
-                  indeterminate
-                  color="grey lighten-5"
-                ></v-progress-circular>
-              </v-row>
-            </template>
-          </v-img>
+        <v-col cols="12" style="padding:0;">
+          <v-row no-gutters style="padding:0;">
+            <v-col
+              v-for="(item, index) in 3"
+              :key="index"
+              cols="12"
+              md="4"
+              style="min-height:25vh;padding:0;text-align:center"
+            >
+              <div class="tInfoDiv">
+                <div
+                  style="position:relative; width:100%; height:150px; margin-bottom:15px; padding:15px;"
+                >
+                  <!-- <v-card
+                    elevation="4"
+                    class="d-flex justify-center align-center"
+                    style="font-size:16px; color:hsl(243, 80%, 35%); font-weight:bold; height:90%; width:90%;margin:auto; background:rgba(255,255,255,0.7); border-radius:10px;"
+                  >
+                    <p style="margin:0;">{{ scheme[index].text }}</p>
+                  </v-card> -->
+                  <v-card
+                    outlined color="transparent"
+                    class="mx-auto"
+                    max-width="344"
+                  >
+                    <v-card-text>
+                      <p class="tahun">{{ scheme[index].tahun}}</p>
+                      <hr />
+                      <div style="padding-top:30px">
+                        <p class="jumlah d-inline">{{ scheme[index].jumlah}}</p>
+                        <p class="peserta-pelatihan d-inline">Peserta Training</p>
+                      </div>
+                      <div style="padding-top:15px">
+                        <p class="peserta d-inline">dari</p>
+                        <p class="pelatihan d-inline">{{ scheme[index].pelatihan}}</p>
+                        <p class="peserta d-inline">Kegiatan Pelatihan</p>
+                      </div>
+                      <!-- <p class="text-h4 text--primary">
+                        be•nev•o•lent
+                      </p>
+                      <p>adjective</p> -->
+                    </v-card-text>
+                  </v-card>
+                </div>
+              </div>
+            </v-col>
+          </v-row>
         </v-col>
       </v-row>
-      <router-link to="/pages/gallery" style="position:relative; z-index:2;">
-        <p class="tTextLink">
-          <span>VIEW MORE</span>
-        </p>
-      </router-link>
-      <hr />
+        <!-- <hr /> -->
+      <!-- <v-row
+        align="center"
+        no-gutters
+        style="font-size:18px; padding:0; margin:0;;"
+      >
+        <v-col cols="12" style="padding:0;">
+          <v-row no-gutters style="padding:0;">
+            <v-col
+              v-for="(item, index) in 2"
+              :key="index"
+              cols="12"
+              md="5"
+              style="min-height:25vh;padding:0;text-align:center"
+            >
+              <div class="tInfoDiv">
+                <div
+                  style="position:relative; width:100%; height:150px; margin-bottom:15px; padding:15px;"
+                >
+                  <v-card
+                    outlined color="transparent"
+                    class="mx-auto"
+                    max-width="344"
+                  >
+                    <v-card-text>
+                      <p class="klien">{{ keterangan[index].text}}</p>
+                    </v-card-text>
+                  </v-card>
+                </div>
+              </div>
+            </v-col>
+          </v-row>
+        </v-col>
+      </v-row>
+      <hr /> -->
     </v-container>
   </div>
 </template>
@@ -60,24 +104,29 @@ export default {
 
   data() {
     return {
-      img: [
+      scheme: [
         {
-          pict: require('../../../assets/lsp-image/coaching/CoachingID1.jpeg')
+          tahun: '2019',
+          jumlah: '872',
+          pelatihan: '55'
         },
         {
-          pict: require('../../../assets/lsp-image/program_khusus/Training-SKK.jpeg')
+          tahun: '2020',
+          jumlah: '401',
+          pelatihan: '18'
         },
         {
-          pict: require('../../../assets/lsp-image/Training/TrainingLW5.jpeg')
+          tahun: '2021',
+          jumlah: '335',
+          pelatihan: '13'
+        }
+      ],
+      keterangan: [
+        {
+          text: 'KLIEN KAMI'
         },
         {
-          pict: require('../../../assets/lsp-image/Training/TrainingLW3.jpeg')
-        },
-        {
-          pict: require('../../../assets/lsp-image/Training/TrainingIDESMSM-1.jpeg')
-        },
-        {
-          pict: require('../../../assets/lsp-image/bimtek/Bimolbatch9.jpeg')
+          text: '"Selamat kepada 2980  peserta yang telah memulai  perjalanan pengembangan  kompetensi dari 2017-2020, dimana 47% diantaranya berasal dari Pertamina Group."'
         }
       ]
     }
@@ -87,6 +136,40 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.tahun {
+  color: #0054b4;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.jumlah {
+  color: orange;
+  font-size: 38px;
+  font-weight: bold;
+}
+.pelatihan {
+  color: #0054b4;
+  font-size: 25px;
+  font-weight: bold;
+}
+.peserta {
+  color: #363636;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0px 5px;
+}
+.peserta-pelatihan {
+  color: #363636;
+  font-size: 25px;
+  font-weight: bold;
+  margin: 0px 5px;
+}
+.klien{
+  color: #363636;
+  font-size: 25px;
+  font-weight: bold;
+  margin: 0px 5px;
+}
 .dotsBg {
   background-image: url('../../../assets/pict/dots-bg.png');
   opacity: 0.5;

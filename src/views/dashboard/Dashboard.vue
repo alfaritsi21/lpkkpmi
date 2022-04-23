@@ -5,11 +5,15 @@
     <div class="scheme">
       <dashboard-seventh-section />
       <dashboard-third-section />
+    <dashboard-sixth-section />
+
+      <!-- <dashboard-peserta-section> -->
+
     </div>
     <!-- <dashboard-second-section /> -->
     <!-- <dashboard-forth-section /> -->
-    <!-- <dashboard-sixth-section /> -->
     <dashboard-eighth-section />
+
     <!-- <a
       id="ScrollTop"
       href="#top"
@@ -29,9 +33,10 @@ export default {
     DashboardThirdSection: () => import('./section/Third'),
     // DashboardForthSection: () => import('./section/Forth'),
     DashboardFifthSection: () => import('./section/Fifth'),
-    // DashboardSixthSection: () => import('./section/Sixth'),
+    DashboardSixthSection: () => import('./section/Sixth'),
     DashboardSeventhSection: () => import('./section/Seventh'),
     DashboardEighthSection: () => import('./section/Eighth')
+    // dashboardPesertaSection: () => import('./section/Peserta')
   },
   mounted() {
     window.scrollTo(0, 0)

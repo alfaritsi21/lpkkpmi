@@ -135,6 +135,11 @@ export default new Router({
           component: () => import('@/views/gallery/Gallery')
         },
         {
+          name: 'Dokumentasi',
+          path: 'pages/dokumentasi',
+          component: () => import('@/views/dokumentasi/Gallery')
+        },
+        {
           name: 'Kontak',
           path: 'pages/kontak',
           component: () => import('@/views/contact/Kontak')

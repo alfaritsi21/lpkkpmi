@@ -10,7 +10,7 @@
             <v-card-text>
               <div class="layout column align-center">
                 <v-img
-                  src="/LSPPMI_Logo.jpeg"
+                  src="../../public/LSPPMI_Logo.png"
                   alt="Vue Material Admin"
                   width="100"
                 />

@@ -27,19 +27,19 @@
                 class="tMax tMobile"
                 v-text="'LPK - KPMI'"
               /> -->
-              <p class="p">
-                Lembaga Pelatihan Kerja
+              <p class="p-title">
+                Lembaga Pelatihan Kerja Kompetensi
                 <span style="color:transparent;"
                   >Lorem ipsum dolor sit amet.</span
                 >
               </p>
-              <p class="p">
+              <!-- <p class="p">
                 Kompetensi
                 <span style="color:transparent;"
                   >Lorem ipsum dolor sit amet.</span
                 >
-              </p>
-              <p class="p">
+              </p> -->
+              <p class="p-title">
                 Profesional Migas Indonesia
                 <span style="color:transparent;"
                   >Lorem ipsum dolor sit amet.</span
@@ -240,12 +240,16 @@ export default {
         path: '',
         menu: [
           {
-            tab: 'Berita LSP',
+            tab: 'Berita',
             path: '/pages/berita'
           },
           {
             tab: 'Gallery',
             path: '/pages/gallery'
+          },
+          {
+            tab: 'Dokumentasi',
+            path: '/pages/dokumentasi'
           }
         ]
       },
@@ -441,6 +445,15 @@ export default {
     // font-size: 12px;
     transition: 0.5s;
   }
+  .p-title {
+    padding-top: 4px;
+    text-align: left;
+    // letter-spacing: 1px;
+    margin: 0;
+    font-size: 11px;
+    font-weight: 500;
+    transition: 0.5s;
+    }
 }
 #nTitle {
   font-family: 'Poppins', sans-serif;

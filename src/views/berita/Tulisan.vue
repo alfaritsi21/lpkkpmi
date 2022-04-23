@@ -37,7 +37,7 @@
                     :style="
                       `background-image:${
                         file !== null
-                          ? 'url(' + API_LINK + '/uploads/' + file + ')'
+                          ? 'url(' + API_LINK + 'uploads/' + file + ')'
                           : 'none'
                       };color:white;background-repeat:no-repeat; background-size:100% 100%;`
                     "
@@ -188,9 +188,10 @@ export default {
         file: ''
       }
     },
+    // KLIK UPDATE BUTTON
     update() {
       axios
-        .get(`${this.API_LINK}/articles/${this.$route.params.id}`)
+        .get(`${this.API_LINK}articles/${this.$route.params.id}`)
         .then(res => {
           const v = res.data.data[0]
           this.title = v.title
@@ -237,11 +238,12 @@ export default {
     },
     saveAdd(form) {
       axios
-        .post(`${this.API_LINK}/articles`, form)
+        .post(`${this.API_LINK}articles`, form)
         .then(res => {
           this.loading = false
           this.showMsgDialog('success', res.data.msg, false)
           this.clear()
+          this.$router.push('/pages/berita')
           // this.update()
         })
         .catch(err => {
@@ -259,12 +261,13 @@ export default {
     },
     saveEdit(form) {
       axios
-        .patch(`${this.API_LINK}/articles/${this.$route.params.id}`, form)
+        .patch(`${this.API_LINK}articles/${this.$route.params.id}`, form)
         .then(res => {
           this.loading = false
           if (res.data.status === 200) {
             this.showMsgDialog('success', res.data.msg, false)
             this.clear()
+            this.$router.push('/pages/berita')
             // this.update()
           } else {
             this.clear()
@@ -301,7 +304,7 @@ export default {
             const data = new FormData()
             data.append('file', event)
             axios
-              .post(`${self.API_LINK}/uploader`, data)
+              .post(`${self.API_LINK}uploader`, data)
               .then(res => {
                 self.showMsgDialog('success', '', false)
                 self.file = res.data.data

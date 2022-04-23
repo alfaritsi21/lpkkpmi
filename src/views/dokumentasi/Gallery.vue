@@ -16,7 +16,7 @@
           class="d-flex"
           style="position:relative; top:-37px;padding:0 20px;"
         >
-          <h2 class="hTitle">Gallery</h2>
+          <h2 class="hTitle">Dokumentasi Kegiatan</h2>
           <v-spacer></v-spacer>
           <v-btn
             v-if="$store.state.auth.status.loggedIn"
@@ -273,8 +273,8 @@ export default {
     },
     loadImage() {
       axios
-        // .get('http://localhost:3001/galeri')
-        .get(`${this.API_LINK}galeri`)
+        // .get('http://localhost:3001/dokumentasi')
+        .get(`${this.API_LINK}dokumentasi`)
         .then(res => {
           this.total_record = res.data.data.length
           this.result = res.data.data
@@ -310,7 +310,7 @@ export default {
       ).then(res => {
         if (res.value) {
           axios
-            .delete(`${this.API_LINK}galeri/${id}`)
+            .delete(`${this.API_LINK}dokumentasi/${id}`)
             .then(res => {
               this.showMsgDialog('success', res.data.msg, false)
               this.loadImage()

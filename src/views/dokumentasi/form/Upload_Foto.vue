@@ -236,7 +236,7 @@ export default {
       this.showMsgDialog('question', 'Simpan', true).then(res => {
         if (res.value) {
           axios
-            .post(`${this.API_LINK}galeri`, form)
+            .post(`${this.API_LINK}dokumentasi`, form)
             .then(res => {
               this.loading = false
               if (res.data.status === 200) {

@@ -38,7 +38,7 @@
               class="hTitle"
               :style="`${wWidth < 353 ? 'line-height:21px' : 'none'};`"
             >
-              Pelatihan / Training
+              Webinar
             </h2>
           </v-col>
           <v-col cols="12" style="padding:0 20px;">
@@ -114,8 +114,25 @@
                   </div>
                 </template>
                 <template v-slot:[`header.brosur`]="{ header }">
+                  <div v-html="header.nama"></div>
+                </template>
+                <template v-slot:[`item.brosur`]="{ item }">
                   <div style="font-weight:bold; padding:0;font-size:14px">
-                    {{ header.text }}
+                    <div class="mr-2">
+                      <v-tooltip bottom>
+                        <template v-slot:activator="{ on, attrs }">
+                          <v-icon
+                            color="primary"
+                            v-bind="attrs"
+                            v-on="on"
+                            @click="editItem(item)"
+                            style="border:1px solid green; border-radius:5px;"
+                            >mdi-download</v-icon
+                          >
+                        </template>
+                        <span>Download Brosur</span>
+                      </v-tooltip>
+                    </div>
                   </div>
                 </template>
                 <!-- <template v-slot:[`item.no`]="{ index }">
@@ -251,8 +268,8 @@ import buildType from '../../services/buildType'
 export default {
   name: 'AsesorKompetensi',
   components: {
-    formEdit: () => import('./form/Asesor_Kompetensi'),
-    formAdd: () => import('./form/Asesor_Kompetensi')
+    formEdit: () => import('./form/Webinar'),
+    formAdd: () => import('./form/Webinar')
   },
 
   data() {
@@ -284,13 +301,13 @@ export default {
           value: 'tanggal'
         },
         {
-          text: 'Status Webinar',
+          text: 'Lokasi',
           align: 'start',
           sortable: false,
           value: 'status'
         },
         {
-          text: 'Brosur',
+          text: '',
           align: 'start',
           sortable: false,
           value: 'brosur'
@@ -372,7 +389,8 @@ export default {
       ).then(res => {
         if (res.value) {
           axios
-            .delete(`${this.API_LINK}/asesor/${id}`)
+            .delete(`http://localhost:3001/webinar/${id}`)
+            // .delete(`${this.API_LINK}/asesor/${id}`)
             .then(res => {
               this.showMsgDialog('success', res.data.msg, false)
               this.loadTable()
